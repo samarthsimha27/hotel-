@@ -50,8 +50,8 @@ app.use('/api/bookings', bookingRoutes);
 app.use('/api/bills', billRoutes);
 app.use('/api/menu', menuRoutes);
 
-// Serve frontend static assets from the root 'dist' folder in production
-const distPath = path.join(__dirname, '../dist');
+// Serve frontend static assets from the split 'frontend/dist' folder in production
+const distPath = path.join(__dirname, '../frontend/dist');
 app.use(express.static(distPath));
 
 // For any non-API routes, serve the React index.html for client-side routing
