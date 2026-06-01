@@ -7,12 +7,10 @@ export const notFound = (req, res, next) => {
 
 // Catch-all server exception handler
 export const errorHandler = (err, req, res, next) => {
-  // If headers already sent, pass to Express default handler
   if (res.headersSent) {
     return next(err);
   }
 
-  // Ensure an error status is set
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   res.status(statusCode);
 

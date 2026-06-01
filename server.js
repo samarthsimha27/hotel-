@@ -14,6 +14,7 @@ import employeeRoutes from './routes/employeeRoutes.js';
 import attendanceRoutes from './routes/attendanceRoutes.js';
 import bookingRoutes from './routes/bookingRoutes.js';
 import billRoutes from './routes/billRoutes.js';
+import menuRoutes from './routes/menuRoutes.js';
 
 // Dynamically resolve absolute path to backend/.env
 // This ensures environment variables load perfectly regardless of where you execute the launch command!
@@ -47,6 +48,7 @@ app.use('/api/employees', employeeRoutes);
 app.use('/api/attendance', attendanceRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/bills', billRoutes);
+app.use('/api/menu', menuRoutes);
 
 // Serve frontend static assets from the root 'dist' folder in production
 const distPath = path.join(__dirname, '../dist');
