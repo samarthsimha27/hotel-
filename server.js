@@ -48,6 +48,18 @@ app.use('/api/attendance', attendanceRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/bills', billRoutes);
 
+// Serve frontend static assets from the root 'dist' folder in production
+const distPath = path.join(__dirname, '../dist');
+app.use(express.static(distPath));
+
+// For any non-API routes, serve the React index.html for client-side routing
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
 // central error interception hooks
 app.use(notFound);
 app.use(errorHandler);
